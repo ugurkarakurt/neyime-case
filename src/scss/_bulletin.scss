@@ -8,9 +8,9 @@
 
     &-header {
       position: fixed;
-      right: 0;
-      top: 0;
       left: 0;
+      top: 0;
+      right: 0;
       background-color: #fff;
 
       .bulletin-table-row {
@@ -25,10 +25,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #eeeeee;
+            border: 1px solid #1e2328;
             font-size: 14px;
-            background-color: #010A13;
-            color: #F0E6D2;
+            background-color: #010a13;
+            color: #f0e6d2;
 
             &:not(:first-child) {
               border-left: none;
@@ -44,19 +44,31 @@
 
     &-body {
       margin-top: 50px;
-      border-bottom: 1px solid #eeeeee;
 
       .bulletin-table-row {
+        border-bottom: 1px solid #1e2328;
         ul {
           display: flex;
           justify-content: center;
           align-items: stretch;
-
           &.buttletin-table-row-header {
             height: 30px;
+            background-color: #f8f8f8;
 
             li {
-              border-bottom: none;
+              border-bottom: 1px solid #eee;
+              &:first-child {
+                display: flex;
+                gap: 5px;
+                span {
+                  &:first-child {
+                    margin-left: 10px;
+                  }
+                }
+              }
+              &:not(:first-child) {
+                border-left: 1px solid #eee;
+              }
             }
           }
 
@@ -64,7 +76,25 @@
             height: 50px;
 
             li {
+              cursor: pointer;
               border-bottom: none;
+              &:first-child {
+                display: flex;
+                gap: 5px;
+                span {
+                  &:first-child {
+                    margin-left: 10px;
+                    font-weight: bold;
+                  }
+                }
+              }
+              &:not(:first-child) {
+                border-left: 1px solid #eee;
+              }
+
+              &.active {
+                background-color: yellow;
+              }
             }
           }
 
@@ -73,14 +103,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #eeeeee;
-
-            &:not(:first-child) {
-              border-left: none;
-            }
-
             &:first-child {
-              padding-left: 10px;
               flex: 5 1;
               justify-content: flex-start;
             }
