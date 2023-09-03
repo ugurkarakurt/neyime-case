@@ -9,7 +9,7 @@ To run the project in the development environment
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-To visit the deployed and running version with Surge.sh 
+## To visit the deployed and running version with Surge.sh 
 [Open](https://nesine-case.surge.sh/) to view it in your browser.
 
 ![image](https://github.com/ugurkarakurt/nesine-case/assets/39516754/90ae5426-730a-42c5-a8be-5b633402d468)
