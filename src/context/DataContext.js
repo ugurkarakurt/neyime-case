@@ -16,6 +16,8 @@ export const DataProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]); // Sepete eklediğim oranlarımı tuttuğum state. 
   const [oldCartItems, setOldCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [isLoding, setIsLoading] = useState(true);
+
 
   (() => { // Body için bir event yazmak için IIFE'den yararlandım. Infinite scroll için gerekli scroll eventim. 
     const body = document.querySelector("body");
@@ -36,7 +38,10 @@ export const DataProvider = ({ children }) => {
         setGrouppedData(grouppedData); // Tüm datayı yazdığım state gönderiyorum. 
         setCurrentData(grouppedData[currentPage]); // Bütün datamın tutulduğu stateten current statetimi ayarlıyorum. Başlangıç değeri olarak indexi 0 tercih ettim.
       })
-  }, []);
+      .then(() => {
+        setIsLoading(false);
+      })
+  }, [isLoding]);
 
   useEffect(() => { // React rendering özelliğinden yararalanmak için bir useEffect daha oluşturdum.
     const newCartTotal = cartItems.reduce((total, cartItem) => total * cartItem.rate, 1); // Sepet elemanlarımın oranlarını çarpıyorum. 
@@ -48,7 +53,6 @@ export const DataProvider = ({ children }) => {
     if (!target.dataset.rate) { // Boş olan ve text olan oran kutularıma tıklandığında fonksiyonu geri çeviriyorum. 
       return;
     }
-
     const item = { // Oran bulunan kutuya tıklandığında ihtiyacım olacak olan datayı bir objeye atıyorum. 
       rate: Number(target.dataset.rate.trim()), // Oranı alıyorum. 
       id: Number(target.closest('.bulletin-table-row').dataset.id.trim()), // Id'yi alıyorum. 
@@ -61,7 +65,7 @@ export const DataProvider = ({ children }) => {
   }
 
   return ( // Componentlerde ulaşmak istediğim stateleri ve metotları valu olarak gönderiyorum. 
-    <DataContext.Provider value={{ currentData, cartItems, addItemToCart, cartTotal }}>
+    <DataContext.Provider value={{ currentData, cartItems, addItemToCart, cartTotal, isLoding }}>
       {children}
     </DataContext.Provider>
   );

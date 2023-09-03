@@ -1,10 +1,24 @@
 .bulletin-table-wrapper {
   width: 100%;
+  min-height: 100vh;
 
   .bulletin-table {
     width: 100%;
     display: flex;
     flex-direction: column;
+    .loading-gif-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
 
     &-header {
       position: fixed;
