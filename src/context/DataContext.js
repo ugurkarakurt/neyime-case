@@ -12,12 +12,10 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
   const [grouppedData, setGrouppedData] = useState([]); // API'de pagination özelliği olmadığı için API'yi 50'şerli olarak objelere ayırdım ve grupladım. 
   const [currentData, setCurrentData] = useState([]); // Sayfa ilk yüklendiğinde tüm datayı getirmek yerine 100'er 100'er şekilde getirmek için bir state tuttum.
-  const [currentPage, setCurrentPage] = useState(0); // Infinite scroll yapmak için Page number olarak, datadan istediğim kısmı bir statete tuttum. 
+  const [currentPage, setCurrentPage] = useState(1); // Infinite scroll yapmak için Page number olarak, datadan istediğim kısmı bir statete tuttum. 
   const [cartItems, setCartItems] = useState([]); // Sepete eklediğim oranlarımı tuttuğum state. 
   const [oldCartItems, setOldCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  const [isLoding, setIsLoading] = useState(true);
-
 
   (() => { // Body için bir event yazmak için IIFE'den yararlandım. Infinite scroll için gerekli scroll eventim. 
     const body = document.querySelector("body");
@@ -36,12 +34,9 @@ export const DataProvider = ({ children }) => {
     request('https://nesine-case-study.onrender.com/bets')
       .then((grouppedData) => {
         setGrouppedData(grouppedData); // Tüm datayı yazdığım state gönderiyorum. 
-        setCurrentData(grouppedData[currentPage]); // Bütün datamın tutulduğu stateten current statetimi ayarlıyorum. Başlangıç değeri olarak indexi 0 tercih ettim.
+        setCurrentData(grouppedData[0]); // Bütün datamın tutulduğu stateten current statetimi ayarlıyorum. Başlangıç değeri olarak indexi 0 tercih ettim.
       })
-      .then(() => {
-        setIsLoading(false);
-      })
-  }, [isLoding]);
+  }, []);
 
   useEffect(() => { // React rendering özelliğinden yararalanmak için bir useEffect daha oluşturdum.
     const newCartTotal = cartItems.reduce((total, cartItem) => total * cartItem.rate, 1); // Sepet elemanlarımın oranlarını çarpıyorum. 
@@ -65,7 +60,7 @@ export const DataProvider = ({ children }) => {
   }
 
   return ( // Componentlerde ulaşmak istediğim stateleri ve metotları valu olarak gönderiyorum. 
-    <DataContext.Provider value={{ currentData, cartItems, addItemToCart, cartTotal, isLoding }}>
+    <DataContext.Provider value={{ currentData, cartItems, addItemToCart, cartTotal }}>
       {children}
     </DataContext.Provider>
   );
