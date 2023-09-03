@@ -2,7 +2,7 @@
 ## I developed a soccer newsletter with React.
 
 ### To visit the deployed and running version with Surge.sh 
-[Open](https://nesine-case.surge.sh/) to view it in your browser.
+[Open](https://nesine-case-study.surge.sh/) to view it in your browser.
 
 To install the project, run the following command in the project directory.
 ### `npm install`
