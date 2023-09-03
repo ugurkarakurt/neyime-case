@@ -4,7 +4,7 @@ import { DataProvider } from './context/DataContext';
 import Bulletin from './components/bulletin/Bulletin.component';
 import Cart from './components/cart/Cart.component';
 
-function App() {
+const App = () => {
   return (
     <DataProvider>
       <div className="App">

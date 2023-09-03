@@ -2,9 +2,8 @@ import React from 'react';
 import { useData } from '../../context/DataContext';
 import CartItem from './CartItem.component';
 
-export default function Cart() {
+const Cart = () => {
   const { cartItems, cartTotal } = useData();
-  console.log(cartTotal);
   return (
 
     <>
@@ -22,3 +21,5 @@ export default function Cart() {
     </>
   )
 }
+
+export default Cart;

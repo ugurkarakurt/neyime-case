@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CartItem({ cartItem }) {
+const CartItem = ({ cartItem }) => {
   return (
     <div className='cart-item'>
       <span>{cartItem.data.OCG[1].MBS}</span>
@@ -10,3 +10,5 @@ export default function CartItem({ cartItem }) {
     </div>
   )
 }
+
+export default CartItem;

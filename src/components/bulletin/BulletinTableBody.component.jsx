@@ -1,7 +1,7 @@
 import React from 'react';
 import { useData } from '../../context/DataContext';
 
-export default function BulletinTableBody() {
+const BulletinTableBody = () => {
   const { currentData, addItemToCart } = useData();
   return (
     <div className="bulletin-table-body">
@@ -31,7 +31,7 @@ export default function BulletinTableBody() {
           <ul className='buttletin-table-row-body' onClick={(e) => addItemToCart(e.target, data)}>
             <li><span>{data.C}</span> <span>{data.T}</span> <span>{data.N}</span></li>
             <li>Yorumlar</li>
-            <li data-rate={data.OCG[1].MBS}>{data.OCG[1].MBS}</li>
+            <li >{data.OCG[1].MBS}</li>
             <li data-rate={data.OCG[1].OC[0].O}>{data.OCG[1].OC[0].O}</li>
             <li data-rate={data.OCG[1].OC[1].O}>{data.OCG[1].OC[1].O}</li>
             <li></li>
@@ -54,3 +54,5 @@ export default function BulletinTableBody() {
     </div>
   )
 }
+
+export default BulletinTableBody;

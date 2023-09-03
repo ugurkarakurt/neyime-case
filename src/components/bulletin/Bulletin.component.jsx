@@ -3,7 +3,7 @@ import React from 'react';
 import BulletinTableHeader from './BulletinTableHeader.component';
 import BulletinTableBody from './BulletinTableBody.component';
 
-function Bulletin() {
+const Bulletin = () => {
   return (
     <div className='bulletin-table-wrapper'>
       <div className="bulletin-table">

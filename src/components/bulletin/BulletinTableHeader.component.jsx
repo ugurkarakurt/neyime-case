@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BulletinTableHeader() {
+const BulletinTableHeader = () => {
   return (
     <div className="bulletin-table-header">
       <div className="bulletin-table-row">
@@ -29,3 +29,5 @@ export default function BulletinTableHeader() {
     </div>
   )
 }
+
+export default BulletinTableHeader;

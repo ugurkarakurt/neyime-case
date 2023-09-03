@@ -1,22 +1,23 @@
 import { createContext, useContext, useState, useEffect } from 'react'; // Gerekli hooklarımı ve metotlarımı import ediyorum.
-import { request, addCartItem } from '../utils/utils';
+import { request, addCartItem, toggleActiveClass } from '../utils/utils';
 
 // Contextimi oluşturdum
 const DataContext = createContext();
 
 // Hooklarımı ve metotlarımı topluca geçmemek için bir fonksiyon oluşturdum. 
-export function useData() {
+export const useData = () => {
   return useContext(DataContext);
 }
 // Provider
-export function DataProvider({ children }) {
+export const DataProvider = ({ children }) => {
   const [grouppedData, setGrouppedData] = useState([]); // API'de pagination özelliği olmadığı için API'yi 50'şerli olarak objelere ayırdım ve grupladım. 
   const [currentData, setCurrentData] = useState([]); // Sayfa ilk yüklendiğinde tüm datayı getirmek yerine 100'er 100'er şekilde getirmek için bir state tuttum.
   const [currentPage, setCurrentPage] = useState(0); // Infinite scroll yapmak için Page number olarak, datadan istediğim kısmı bir statete tuttum. 
   const [cartItems, setCartItems] = useState([]); // Sepete eklediğim oranlarımı tuttuğum state. 
+  const [oldCartItems, setOldCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
-  (function () { // Body için bir event yazmak için IIFE'den yararlandım. Infinite scroll için gerekli scroll eventim. 
+  (() => { // Body için bir event yazmak için IIFE'den yararlandım. Infinite scroll için gerekli scroll eventim. 
     const body = document.querySelector("body");
     body.onscroll = function () {
       if (window.scrollY > (document.body.offsetHeight - window.outerHeight)) { // Window scroll mesafesi içeriğimin altına geldiğinde 
@@ -40,7 +41,8 @@ export function DataProvider({ children }) {
   useEffect(() => { // React rendering özelliğinden yararalanmak için bir useEffect daha oluşturdum.
     const newCartTotal = cartItems.reduce((total, cartItem) => total * cartItem.rate, 1); // Sepet elemanlarımın oranlarını çarpıyorum. 
     setCartTotal(newCartTotal.toFixed(2)); // Sepet toplam statetimi güncelliyorum. 
-  }, [cartItems]); // State değiştiğinde değerimin render olması için statetimi useEffect argümanı geçiyorum.
+    toggleActiveClass(cartItems, 'active', oldCartItems);
+  }, [cartItems, oldCartItems]); // State değiştiğinde değerimin render olması için statetimi useEffect argümanı geçiyorum.
 
   const addItemToCart = (target, data) => { // Sepete oran ekleme metotum. 
     if (!target.dataset.rate) { // Boş olan ve text olan oran kutularıma tıklandığında fonksiyonu geri çeviriyorum. 
@@ -51,9 +53,11 @@ export function DataProvider({ children }) {
       rate: Number(target.dataset.rate.trim()), // Oranı alıyorum. 
       id: Number(target.closest('.bulletin-table-row').dataset.id.trim()), // Id'yi alıyorum. 
       element: target, // Ui değişikliklri için tıkladığım kutuyu alıyorum. 
+      row: target.closest('.bulletin-table-row'),
       data
     }
     setCartItems(addCartItem(cartItems, item));  // PseudoFunction ile döndürdüğüm değeri Sepet statime gönderiyorum.
+    setOldCartItems(cartItems);
   }
 
   return ( // Componentlerde ulaşmak istediğim stateleri ve metotları valu olarak gönderiyorum. 
