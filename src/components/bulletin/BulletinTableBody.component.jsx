@@ -8,7 +8,18 @@ const BulletinTableBody = () => {
       {currentData.map((data, index) => (
         <div className="bulletin-table-row" data-id={data.NID} key={index}>
           <ul className='buttletin-table-row-header'>
-            <li><span>{data.D}</span> <span>{data.DAY}</span> <span>{data.LN}</span></li>
+            <li>
+              <div className="title">
+                <span>{data.D}</span>
+                <span>{data.DAY}</span>
+                <span>{data.LN}</span>
+              </div>
+              <div className="information">
+                <span>{data.C}</span>
+                <span>{data.T}</span>
+                <span>{data.N}</span>
+              </div>
+            </li>
             <li>Yorumlar</li>
             <li></li>
             <li>1</li>

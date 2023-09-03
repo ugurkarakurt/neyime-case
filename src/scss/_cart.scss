@@ -11,6 +11,9 @@
   background-color: #010a13;
   color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  @include md {
+    width: 100%;
+  }
   .cart-item {
     flex: 1 1;
     padding: 10px;
@@ -22,7 +25,7 @@
     span {
       &:last-child {
         font-weight: bold;
-        color: #F0E6D2;
+        color: #f0e6d2;
       }
     }
   }
