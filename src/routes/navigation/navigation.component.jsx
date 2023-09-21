@@ -8,21 +8,14 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
 
-import NeyimeLogo from '../../assets/nesine-logo.png';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
-import LoginIcon from '../../assets/login.svg'
-import LogoutIcon from '../../assets/logout.svg'
-import BulletinIcon from '../../assets/soccer-ball.svg'
+import NeyimeLogo from '../../assets/images/icons/nesine-logo.png';
+import LoginIcon from '../../assets/images/icons/login.svg'
+import LogoutIcon from '../../assets/images/icons/logout.svg'
+import BulletinIcon from '../../assets/images/icons/soccer-ball.svg'
 
-import {
-  NavigationContainer,
-  NavLinks,
-  NavLink,
-  LogoContainer,
-  SearchContainer,
-  Logo
-} from './navigation.styles';
+import { NavigationContainer, NavLinks, NavLink, LogoContainer, SearchContainer, Logo } from './navigation.styles';
 
 const defaultFormFields = {
   search: ''

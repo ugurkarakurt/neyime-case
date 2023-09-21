@@ -10,6 +10,7 @@ const Category = () => {
   const { category } = useParams();
   const { groupedCategoryMap } = useContext(CategoriesContext);
   const [bets, setBets] = useState(groupedCategoryMap[category]);
+  console.log(groupedCategoryMap);
 
   useEffect(() => {
     setBets(groupedCategoryMap[category]);

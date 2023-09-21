@@ -1,6 +1,10 @@
 .directory-container {
+  height: 100%;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  padding: 140px 70px 70px;
+  gap: 10px
 }

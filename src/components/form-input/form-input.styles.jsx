@@ -16,7 +16,7 @@ export const FormInputLabel = styled.label`
   left: 11px;
   top: 50%;
   transform: translateY(-50%);
-  transition: 300ms ease all;
+  transition: .1s ease all;
   color: #F0E6D2;
   opacity: .5;
 
@@ -29,8 +29,8 @@ export const Input = styled.input`
   height: 49px;
   font-size: 14px;
   background-color: #1E2328;
-  transition: .2s ease-in-out;
-  border: 1px solid #3c3c41;
+  transition: .1s ease-in-out;
+  border: 1px solid rgba( 240, 230, 210, .1);
   border-radius: 5px;
   color: #F0E6D2;
   opacity: .5;

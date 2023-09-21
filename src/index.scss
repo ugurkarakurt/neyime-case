@@ -2,8 +2,6 @@
 
 body {
   margin: 0;
-  font-family: "Comfortaa", cursive;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #010a13;
@@ -13,5 +11,8 @@ body {
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Comfortaa", cursive !important;
+}
 
+#root{
+  height: 100vh;
 }

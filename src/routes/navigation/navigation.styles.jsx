@@ -8,8 +8,8 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   align-items: stretch;
   background-color: #010a13;
-  border-bottom: 1px solid#3c3c41;
-  position: sticky;
+  border-bottom: 1px solid rgba( 240, 230, 210, .1);
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
@@ -45,7 +45,7 @@ export const NavLink = styled(Link)`
   color: #f0e6d2;
   opacity: 0.5;
   padding: 0 14px;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +77,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-right: 1px solid#3c3c41;
+  border-right: 1px solid rgba( 240, 230, 210, .1);
   @media (max-width: 991px) {
     padding: 0 28px;
   }
@@ -87,18 +87,18 @@ export const SearchContainer = styled.div`
     width: 100%;
     order: 3;
     border-right: none;
-    border-top: 1px solid#3c3c41;
+    border-top: 1px solid rgba( 240, 230, 210, .1);
   }
 `;
 
 export const Logo = styled.div`
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   padding: 0 28px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  border-right: 1px solid #3c3c41;
+  border-right: 1px solid rgba( 240, 230, 210, .1);
   img {
     @media (max-width: 991px) {
       width: 100px;

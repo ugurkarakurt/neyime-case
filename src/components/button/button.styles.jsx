@@ -10,7 +10,7 @@ export const BaseButton = styled.button`
   outline:none;
   background-color: #ffffff;
   color: #D3393C;
-  transition: .2s ease-in-out;
+  transition: .1s ease-in-out;
   border-radius: 5px;
   border: 1px solid #D3393C;
 

@@ -32,9 +32,9 @@ export const CategoriesProvider = ({ children }) => {
     getCategoriesMap();
   }, []);
 
-  // useEffect(() => {
-  //   setCategoryNames(Object.keys(groupedCategoryMap))
-  // }, [groupedCategoryMap])
+  useEffect(() => {
+    setCategoryNames(Object.keys(groupedCategoryMap))
+  }, [groupedCategoryMap])
 
 
 
