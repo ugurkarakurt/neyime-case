@@ -1,45 +1,48 @@
+import { useState, useContext } from 'react';
+import { CategoriesContext } from '../../contexts/categories.context';
 import { useNavigate } from "react-router-dom";
 import { BackgroundImage, Body, DirectoryItemContainer, } from './directory-item.styles';
 import useSound from 'use-sound';
 import buttonHoverSound from '../../assets/audios/hover.mp3';
 import buttonClickSound from '../../assets/audios/click.mp3';
-import { useState } from "react";
 
 
 const DirectoryItem = ({ category }) => {
-  const [hover] = useSound(buttonHoverSound, { volume: 1 });
-  const [click] = useSound(buttonClickSound, { volume: .5 });
-  
-  const [clickState, setClickState] = useState(false);
+  const { setCategoryOpened } = useContext(CategoriesContext);
+
+  const [hover] = useSound(buttonHoverSound, { volume: .8 });
+  const [click] = useSound(buttonClickSound, { volume: 1 });
+
+  const [isButtonCliked, setIsButtonCliked] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
 
-
   const LeagueLogos = require.context('../../assets/images/logos', true);
-  let LeagueLogo = LeagueLogos(`./${category}.png`);
+  const LeagueLogo = LeagueLogos(`./${category}.svg`);
 
   const navigate = useNavigate();
 
-  const handleHover = () => {
+  const onMouseEnterHandler = () => {
     if (!isButtonHovered) {
       hover();
       setIsButtonHovered(true);
     }
   };
 
-  const handleMouseLeave = () => {
+  const onMouseLeaveHandler = () => {
     setIsButtonHovered(false);
   };
 
   const onNavigateHandler = () => {
+    setIsButtonCliked(true);
+    setCategoryOpened(true);
     click();
-    setClickState(true);
     setTimeout(() => {
       navigate(`bulletin/${category}`)
     }, 400);
   }
   return (
-    <DirectoryItemContainer clickState={clickState} onMouseEnter={handleHover}
-      onMouseLeave={handleMouseLeave} onClick={onNavigateHandler}>
+    <DirectoryItemContainer isButtonCliked={isButtonCliked} onMouseEnter={onMouseEnterHandler}
+      onMouseLeave={onMouseLeaveHandler} onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={LeagueLogo} />
       <Body>
         <h2>{category}</h2>

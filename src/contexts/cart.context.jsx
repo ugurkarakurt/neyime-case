@@ -1,19 +1,31 @@
 import { createContext, useState, useEffect } from 'react';
 
 const addCartItem = (cartItems, productToAdd) => {
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === productToAdd.id
-  );
+
+  const existingCartItem = cartItems.find((cartItem) => cartItem.id === productToAdd.id);
 
   if (existingCartItem) {
-    return cartItems.map((cartItem) =>
-      cartItem.id === productToAdd.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    );
+    const existingCartItemID = cartItems.find((cartItem) => cartItem.itemID === productToAdd.itemID);
+
+    if (existingCartItemID) {
+      return cartItems.filter((cartItem) => cartItem.id !== productToAdd.id);
+    }
+
+    if (!existingCartItemID) {
+      return cartItems.map((cartItem) => {
+        if (cartItem.id === productToAdd.id) {
+          return { ...cartItem, rate: productToAdd.rate, itemID: productToAdd.itemID }
+        } else {
+          return cartItem;
+        }
+      }
+      )
+    }
   }
 
-  return [...cartItems, { ...productToAdd, quantity: 1 }];
+  if (!existingCartItem) {
+    return [...cartItems, { ...productToAdd }]
+  }
 };
 
 const removeCartItem = (cartItems, cartItemToRemove) => {
@@ -40,11 +52,11 @@ const clearCartItem = (cartItems, cartItemToClear) =>
 
 export const CartContext = createContext({
   isCartOpen: false,
-  setIsCartOpen: () => {},
+  setIsCartOpen: () => { },
   cartItems: [],
-  addItemToCart: () => {},
-  removeItemFromCart: () => {},
-  clearItemFromCart: () => {},
+  addItemToCart: () => { },
+  removeItemFromCart: () => { },
+  clearItemFromCart: () => { },
   cartCount: 0,
   cartTotal: 0,
 });
@@ -68,10 +80,13 @@ export const CartProvider = ({ children }) => {
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
+
+    console.log(cartItems);
     setCartTotal(newCartTotal);
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
+    console.log(productToAdd);
     setCartItems(addCartItem(cartItems, productToAdd));
   };
 

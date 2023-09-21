@@ -1,18 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CategoriesContext } from '../../contexts/categories.context';
 
 import DirectoryItem from '../directory-item/directory-item.component';
-import './directory.styles.scss';
+import { DirectoryContainer } from './directory.styles.jsx';
 
 const Directory = () => {
-  const { categoryNames } = useContext(CategoriesContext)
+  const { categoryNames, categoryOpened, setCategoryOpened } = useContext(CategoriesContext);
+
+  useEffect(() => {
+    setCategoryOpened(false);
+  }, []);
 
   return (
-    <div className='directory-container'>
+    <DirectoryContainer categoryOpened={categoryOpened}>
       {categoryNames.map((category) => (
         <DirectoryItem key={category} category={category} />
       ))}
-    </div>
+    </DirectoryContainer>
   );
 };
 

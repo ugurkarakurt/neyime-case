@@ -3,12 +3,21 @@ import { request } from '../utils/request/request.utils';
 
 export const CategoriesContext = createContext({
   categoriesMap: {},
+  setCategoriesMap: () => { },
+  groupedCategoryMap: '',
+  setGroupedCategoryMap: () => { },
+  categoryNames: [],
+  setCategoryNames: () => { },
+  categoryOpened: false,
+  setCategoryOpened: () => { }
 });
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
   const [groupedCategoryMap, setGroupedCategoryMap] = useState({});
   const [categoryNames, setCategoryNames] = useState([]);
+  const [categoryOpened, setCategoryOpened] = useState(false);
+
 
   useEffect(() => {
     const getCategoriesMap = async () => {
@@ -26,19 +35,20 @@ export const CategoriesProvider = ({ children }) => {
             groups[LN].push(title);
             return groups
           }, {});
-          setGroupedCategoryMap(grouped);
+          const allGrouped = { ...grouped, 'ALL': [...groupedCategoryDatas] }
+          setGroupedCategoryMap(allGrouped);
         })
     };
     getCategoriesMap();
   }, []);
 
   useEffect(() => {
-    setCategoryNames(Object.keys(groupedCategoryMap))
+    setCategoryNames(Object.keys(groupedCategoryMap));
   }, [groupedCategoryMap])
 
 
 
-  const value = { categoriesMap, setCategoriesMap, groupedCategoryMap, categoryNames };
+  const value = { categoriesMap, setCategoriesMap, groupedCategoryMap, categoryNames, categoryOpened, setCategoryOpened };
   return (
     <CategoriesContext.Provider value={value}>
       {children}

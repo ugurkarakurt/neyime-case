@@ -10,13 +10,12 @@ const Category = () => {
   const { category } = useParams();
   const { groupedCategoryMap } = useContext(CategoriesContext);
   const [bets, setBets] = useState(groupedCategoryMap[category]);
-  console.log(groupedCategoryMap);
 
   useEffect(() => {
     setBets(groupedCategoryMap[category]);
   }, [category, groupedCategoryMap]);
 
-  const itemSize = 100;
+  const itemSize = 77;
   const itemCount = bets ? bets.length : 0;
 
   const Row = ({ index, style }) => (
@@ -31,7 +30,7 @@ const Category = () => {
       {bets && (
 
         <List
-          height={1000}
+          height={600}
           itemCount={itemCount}
           itemSize={itemSize}
           width={'100%'}
