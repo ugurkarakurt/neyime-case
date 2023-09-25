@@ -18,7 +18,6 @@ export const CategoriesProvider = ({ children }) => {
   const [categoryNames, setCategoryNames] = useState([]);
   const [categoryOpened, setCategoryOpened] = useState(false);
 
-
   useEffect(() => {
     const getCategoriesMap = async () => {
       await request('https://nesine-case-study.onrender.com/bets')

@@ -1,16 +1,18 @@
-import './cart-item.styles.scss';
+import { CartItemContainer, CartItemWrapper } from './cart-item.styles'
 
 const CartItem = ({ cartItem }) => {
-  const { betName, rate, quantity } = cartItem;
+  console.log(cartItem);
+  const { betName, rate, league, quantity } = cartItem;
   return (
-    <div className='cart-item-container'>
-      <div className='item-details'>
+    <CartItemContainer>
+      <CartItemWrapper>
         <span className='name'>{betName}</span>
         <span className='price'>
-          {quantity} x ${rate}
+          <span>{league}</span>
+          {quantity} x ₺{rate}
         </span>
-      </div>
-    </div>
+      </CartItemWrapper>
+    </CartItemContainer>
   );
 };
 

@@ -4,16 +4,23 @@ import Button from '../button/button.component';
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
-  width: 240px;
-  height: 340px;
+  width: 300px;
+  min-height: 200px;
+  padding: 28px 14px;
+  border: 1px solid rgba(240, 230, 210, .1);
+  border-radius: 5px;
+  top: calc(100% + 2px);
+  right: 150px;
+  z-index: 5;
+  color: #F0E6D2;
+  background-color: #010A13;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  border: 1px solid black;
-  background-color: white;
-  top: 90px;
-  right: 40px;
-  z-index: 5;
+  justify-content: space-between;
+
+  @media (max-width: 991px) {
+    right: 0;
+  }
 
   ${Button} {
     margin-top: auto;
@@ -21,13 +28,31 @@ export const CartDropdownContainer = styled.div`
 `;
 
 export const EmptyMessage = styled.span`
-  font-size: 18px;
-  margin: 50px auto;
+  font-size: 14px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
 `;
 
 export const CartItems = styled.div`
-  height: 240px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
+  max-height: 234px;
+  overflow-y: auto;
+  margin-bottom: 14px;
+  gap: 14px;
 `;
+
+export const CartTotal = styled.span`
+  padding: 0 20px;
+ text-align: end;
+ margin-bottom: 14px;
+ color: #F0E6D2;
+`

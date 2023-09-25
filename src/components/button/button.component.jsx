@@ -24,6 +24,7 @@ const Button = ({ children, buttonType, ...otherProps }) => {
   const [click] = useSound(buttonClickSound, { volume: 1 });
 
   const CustomButton = getButton(buttonType);
+
   return <CustomButton onClick={click} {...otherProps}>{children}</CustomButton>;
 };
 

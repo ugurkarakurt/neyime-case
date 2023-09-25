@@ -10,25 +10,30 @@ import {
   CartDropdownContainer,
   EmptyMessage,
   CartItems,
+  CartTotal
 } from './cart-dropdown.styles';
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
+
+  console.log(cartItems);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
     navigate('/checkout');
   };
 
+
   return (
     <CartDropdownContainer>
       <CartItems>
         {cartItems.length ? (
-          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+          cartItems.map((item) => <CartItem key={item.itemID} cartItem={item} />)
         ) : (
           <EmptyMessage>Your cart is empty</EmptyMessage>
         )}
       </CartItems>
+      {cartItems.length ? (<CartTotal>₺ {cartTotal}</CartTotal>) : ''}
       <Button buttonType={'inverted'} onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
     </CartDropdownContainer>
   );

@@ -4,18 +4,35 @@ import { CategoriesContext } from '../../contexts/categories.context';
 import ProductCard from '../../components/product-card/product-card.component';
 import { FixedSizeList as List } from 'react-window';
 
-import './category.styles.scss';
+import { CategoryContainer, CategoryContainerTitle } from './category.styles';
 
 const Category = () => {
   const { category } = useParams();
   const { groupedCategoryMap } = useContext(CategoriesContext);
   const [bets, setBets] = useState(groupedCategoryMap[category]);
+  const [rowHeight, setRowHeight] = useState(77);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 1200) {
+        setRowHeight(77);
+      } else {
+        setRowHeight(144);
+      }
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setBets(groupedCategoryMap[category]);
   }, [category, groupedCategoryMap]);
 
-  const itemSize = 77;
+  const itemSize = rowHeight;
   const itemCount = bets ? bets.length : 0;
 
   const Row = ({ index, style }) => (
@@ -25,8 +42,8 @@ const Category = () => {
   );
 
   return (
-    <div className='category-container'>
-      <h2 className='category-title'>{category.toUpperCase()}</h2>
+    <CategoryContainer>
+      <CategoryContainerTitle>{category.toUpperCase()}</CategoryContainerTitle>
       {bets && (
 
         <List
@@ -38,7 +55,7 @@ const Category = () => {
           {Row}
         </List>
       )}
-    </div>
+    </CategoryContainer>
   );
 }
 
