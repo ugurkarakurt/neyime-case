@@ -12,7 +12,7 @@ export const ProductCardContainer = styled.div`
     margin: 0 auto;
   }
   @media (max-width: 991px) {
-    width: 100%
+    width: 100%;
   }
 `;
 
@@ -27,6 +27,9 @@ export const ProductCardHeader = styled.div`
 export const ProdcutCardDate = styled.div`
   font-size: 12px;
   padding: 0 5px;
+  @media (max-width: 420px) {
+    font-size: 10px;
+  }
 `;
 
 export const ProdcutCardCategoryName = styled.div`
@@ -40,7 +43,7 @@ export const ProductCardBody = styled.div`
   align-items: center;
   @media (max-width: 1200px) {
     overflow-x: auto;
-    padding-bottom: 14px;
+    padding-bottom: 12px;
   }
 `;
 
@@ -95,5 +98,15 @@ export const ProdcutCardSection = styled.section`
     @media (max-width: 1200px) {
       display: none;
     }
+  }
+`;
+
+export const Divider = styled.div`
+  display: none;
+  margin: 10px 0;
+  border-bottom: 1px solid rgba(240, 230, 210, 0.1);
+  width: 100%;
+  @media (max-width: 420px) {
+    display: block;
   }
 `;

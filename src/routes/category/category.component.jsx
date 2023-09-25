@@ -14,11 +14,17 @@ const Category = () => {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 1200) {
-        setRowHeight(77);
-      } else {
-        setRowHeight(144);
+      if (window.innerWidth < 420) {
+        setRowHeight(165);
+        return;
       }
+
+      if (window.innerWidth <= 1200) {
+        setRowHeight(144);
+        return;
+      }
+
+      setRowHeight(77);
     }
     handleResize()
     window.addEventListener('resize', handleResize);

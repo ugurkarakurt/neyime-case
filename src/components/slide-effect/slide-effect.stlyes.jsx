@@ -39,5 +39,5 @@ export const SlideEffectContainer = styled.div`
   opacity: 1;
   transition: transform 0.4s ease-in-out;
   animation-name: ${bounceAnimation};
- animation-duration: .4s;
+  animation-duration: .4s;
 `;

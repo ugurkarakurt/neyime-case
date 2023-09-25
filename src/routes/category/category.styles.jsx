@@ -17,6 +17,7 @@ export const CategoryContainer = styled.div`
     border:none;
   }
   @media (max-width: 576px) {
+    padding: 35px 14px;
     margin: 140px auto 0;
   }
 `;
@@ -30,5 +31,6 @@ export const CategoryContainerTitle = styled.h2`
   }
   @media (max-width: 420px) {
     text-align: start;
+    padding-left: 5px;
   }
 `;

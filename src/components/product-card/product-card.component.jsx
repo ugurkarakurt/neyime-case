@@ -1,6 +1,6 @@
 import ProductCardItem from '../product-card-item/product-card-item.component';
 
-import { ProductCardContainer, ProductCardHeader, ProductCardBody, ProdcutCardSection, ProdcutCardDate, ProdcutCardCategoryName, ProductCardFooter } from './product-card.styles';
+import { Divider, ProductCardContainer, ProductCardHeader, ProductCardBody, ProdcutCardSection, ProdcutCardDate, ProdcutCardCategoryName, ProductCardFooter } from './product-card.styles';
 
 const ProductCard = ({ bet }) => {
   const rowID = bet.C;
@@ -12,12 +12,12 @@ const ProductCard = ({ bet }) => {
   return (
     <ProductCardContainer>
       <ProductCardHeader>
-        <ProdcutCardDate>
-          {bet.D} / {bet.DAY} / {bet.T}
-        </ProdcutCardDate>
         <ProdcutCardCategoryName>
           {bet.LN}
         </ProdcutCardCategoryName>
+        <ProdcutCardDate>
+          {bet.D} / {bet.DAY} / {bet.T}
+        </ProdcutCardDate>
       </ProductCardHeader>
 
       <ProductCardFooter>
@@ -63,6 +63,7 @@ const ProductCard = ({ bet }) => {
         </ProdcutCardSection>
 
       </ProductCardBody>
+      <Divider></Divider>
 
     </ProductCardContainer>
   );

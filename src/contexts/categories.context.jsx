@@ -20,7 +20,7 @@ export const CategoriesProvider = ({ children }) => {
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      await request('https://nesine-case-study.onrender.com/bets')
+      await request('https://neyime-3f3b4a448a43.herokuapp.com/list')
         .then((categoryDatas) => {
           setCategoriesMap(categoryDatas);
           return categoryDatas;

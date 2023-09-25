@@ -8,7 +8,7 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   align-items: stretch;
   background-color: #010a13;
-  border-bottom: 1px solid rgba( 240, 230, 210, .1);
+  border-bottom: 1px solid rgba(240, 230, 210, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -62,6 +62,9 @@ export const NavLink = styled(Link)`
 
   @media (max-width: 991px) {
     opacity: 1;
+    &:hover {
+      background-color: transparent;
+    }
     span {
       display: none;
     }
@@ -77,7 +80,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-right: 1px solid rgba( 240, 230, 210, .1);
+  border-right: 1px solid rgba(240, 230, 210, 0.1);
   @media (max-width: 991px) {
     padding: 0 28px;
   }
@@ -87,7 +90,8 @@ export const SearchContainer = styled.div`
     width: 100%;
     order: 3;
     border-right: none;
-    border-top: 1px solid rgba( 240, 230, 210, .1);
+    border-top: 1px solid rgba(240, 230, 210, 0.1);
+    padding: 0 16px;
   }
 `;
 
@@ -98,7 +102,7 @@ export const Logo = styled.div`
   justify-content: center;
   align-items: center;
   color: #fff;
-  border-right: 1px solid rgba( 240, 230, 210, .1);
+  border-right: 1px solid rgba(240, 230, 210, 0.1);
   img {
     @media (max-width: 991px) {
       width: 100px;
@@ -108,5 +112,11 @@ export const Logo = styled.div`
     background-color: #1e282d;
   }
 
+  @media (max-width: 991px) {
+    opacity: 1;
+    &:hover {
+      background-color: transparent;
+    }
+  }
   flex: 0.5 1;
 `;
