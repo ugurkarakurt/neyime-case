@@ -14,7 +14,7 @@ const addCartItem = (cartItems, productToAdd) => {
     if (!existingCartItemID) {
       return cartItems.map((cartItem) => {
         if (cartItem.rowID === productToAdd.rowID) {
-          return { ...cartItem, rate: productToAdd.rate, itemID: productToAdd.itemID }
+          return { ...cartItem, odd: productToAdd.odd, itemID: productToAdd.itemID }
         } else {
           return cartItem;
         }
@@ -71,7 +71,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     const newCartTotal = cartItems.reduce(
-      (total, cartItem) => total * cartItem.rate,
+      (total, cartItem) => total * cartItem.odd,
       1
     );
 

@@ -1,6 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Button from '../button/button.component';
+
+const slideAnimation = keyframes`
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+`;
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
@@ -11,15 +20,21 @@ export const CartDropdownContainer = styled.div`
   border-radius: 5px;
   top: calc(100% + 2px);
   right: 150px;
-  z-index: 5;
   color: #F0E6D2;
   background-color: #010A13;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  animation: ${slideAnimation} 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
 
   @media (max-width: 991px) {
     right: 0;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+    top: 100%;
+    border-radius: 0;
   }
 
   ${Button} {

@@ -3,6 +3,16 @@ import styled from "styled-components";
 export const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
+  position: relative;
+  user-select: none;
+`;
+
+export const RemoveButtonContainer = styled.img`
+  position: absolute;
+  right: 5px;
+  top: 0;
+  width: 12px;
+  cursor: pointer;
 `;
 
 export const CartItemWrapper = styled.div`
@@ -13,20 +23,20 @@ export const CartItemWrapper = styled.div`
   justify-content: center;
   padding: 0 7px 14px;
   gap: 7px;
-  border-bottom: 1px solid rgba(240, 230, 210, .1);
+  border-bottom: 1px solid rgba(240, 230, 210, 0.1);
   span {
     font-size: 12px;
 
-    &.name{
+    &.name {
       font-size: 14px;
     }
-    
-    &:last-child{
-      color: #C89B3C;
+
+    &:last-child {
+      color: #c89b3c;
       display: flex;
       justify-content: space-between;
-      span{
-        color: rgba(240, 230, 210, .5);
+      span {
+        color: rgba(240, 230, 210, 0.5);
       }
     }
   }

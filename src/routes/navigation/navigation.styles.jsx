@@ -50,6 +50,8 @@ export const NavLink = styled(Link)`
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  background-color: #010a13;
+
   &:hover {
     opacity: 1;
     background-color: #1e282d;

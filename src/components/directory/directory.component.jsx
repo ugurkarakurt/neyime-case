@@ -10,7 +10,7 @@ const Directory = () => {
 
   useEffect(() => {
     setCategoryOpened(false);
-  }, []);
+  }, [setCategoryOpened]);
   return (
     <DirectoryContainer categoryOpened={categoryOpened}>
       <SlideEffect />

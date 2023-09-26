@@ -9,7 +9,7 @@ import { CategoryContainer, CategoryContainerTitle } from './category.styles';
 const Category = () => {
   const { category } = useParams();
   const { groupedCategoryMap } = useContext(CategoriesContext);
-  const [bets, setBets] = useState(groupedCategoryMap[category]);
+  const [odds, setBets] = useState(groupedCategoryMap[category]);
   const [rowHeight, setRowHeight] = useState(77);
 
   useEffect(() => {
@@ -39,18 +39,18 @@ const Category = () => {
   }, [category, groupedCategoryMap]);
 
   const itemSize = rowHeight;
-  const itemCount = bets ? bets.length : 0;
+  const itemCount = odds ? odds.length : 0;
 
   const Row = ({ index, style }) => (
     <div style={style} >
-      {bets && <ProductCard bet={bets[index]} />}
+      {odds && <ProductCard odd={odds[index]} />}
     </div>
   );
 
   return (
     <CategoryContainer>
       <CategoryContainerTitle>{category.toUpperCase()}</CategoryContainerTitle>
-      {bets && (
+      {odds && (
 
         <List
           height={600}

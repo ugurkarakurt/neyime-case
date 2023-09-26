@@ -42,6 +42,8 @@ const Navigation = () => {
   return (
     <Fragment>
       <NavigationContainer>
+        {isCartOpen && <CartDropdown />}
+
         <LogoContainer onClick={click} to='/'>
           <Logo>
             <img src={NeyimeLogo} alt="" />
@@ -80,7 +82,6 @@ const Navigation = () => {
           )}
           <CartIcon />
         </NavLinks>
-        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
       <Outlet />
     </Fragment>

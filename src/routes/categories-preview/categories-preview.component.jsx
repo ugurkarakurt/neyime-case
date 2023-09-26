@@ -12,9 +12,9 @@ const CategoriesPreview = () => {
       <SlideEffect />
       {
         Object.keys(groupedCategoryMap).map(title => {
-          const bets = groupedCategoryMap[title];
+          const odds = groupedCategoryMap[title];
           return (
-            <CategoryPreview key={title} title={title} bets={bets} />
+            <CategoryPreview key={title} title={title} odds={odds} />
           )
         })
       }

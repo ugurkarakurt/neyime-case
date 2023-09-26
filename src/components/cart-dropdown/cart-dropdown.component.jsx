@@ -34,7 +34,7 @@ const CartDropdown = () => {
         )}
       </CartItems>
       {cartItems.length ? (<CartTotal>₺ {cartTotal}</CartTotal>) : null}
-      {cartItems.length ? (<Button buttonType={'inverted'} onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>) : null}
+      {cartItems.length ? (<Button children={'GO TO CHECKOUT'} buttonType={'inverted'} onClick={goToCheckoutHandler} />) : null}
     </CartDropdownContainer>
   );
 };

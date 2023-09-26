@@ -6,6 +6,8 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 import { CategoriesProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
+import { AlertProvider } from "./contexts/alert.context";
+import AlertMessage from "./components/alert/alert-message.component";
 
 import "./index.scss";
 
@@ -14,12 +16,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <CategoriesProvider>
-          <CartProvider>
-            <Reset />
-            <App />
-          </CartProvider>
-        </CategoriesProvider>
+        <AlertProvider>
+          <CategoriesProvider>
+            <CartProvider>
+              <Reset />
+              <App />
+              <AlertMessage />
+            </CartProvider>
+          </CategoriesProvider>
+        </AlertProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
