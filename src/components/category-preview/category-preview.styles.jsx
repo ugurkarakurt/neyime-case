@@ -13,6 +13,7 @@ export const CategoryPreviewTitle = styled.h2`
   padding-bottom: 14px;
   font-size: 14px;
   border-bottom: 1px solid rgba(240, 230, 210, 0.1);
+  margin: 0 10px;
 `;
 
 export const CategoryPreviewLink = styled(Link)`

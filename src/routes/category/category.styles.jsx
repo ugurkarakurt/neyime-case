@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FixedSizeList as List } from 'react-window';
+
 
 export const CategoryContainer = styled.div`
   display: flex;
@@ -10,6 +12,8 @@ export const CategoryContainer = styled.div`
   border: 1px solid rgba(240, 230, 210, 0.1);
   border-radius: 10px;
   margin: 140px auto 0;
+  gap: 21px;
+
   @media (max-width: 1200px) {
     margin: 70px auto 0;
     width: 100%;
@@ -26,11 +30,28 @@ export const CategoryContainerTitle = styled.h2`
   font-size: 21px;
   margin-bottom: 25px;
   text-align: center;
-  @media (max-width: 991px) {
-    font-size: 16px;
-  }
-  @media (max-width: 420px) {
-    text-align: start;
-    padding-left: 5px;
-  }
 `;
+
+export const ListContainer = styled(List)`
+ &::-webkit-scrollbar {
+    width: 2px;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 230, 210, 0.1);
+    outline: 1px solid rgba(240, 230, 210, 0.1);
+    border-radius: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+  }
+
+  @-moz-document url-prefix() {
+    .scroller {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(240, 230, 210, 0.1);
+    }
+  }
+`

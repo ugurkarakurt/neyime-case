@@ -2,9 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CategoriesContext } from '../../contexts/categories.context';
 import ProductCard from '../../components/product-card/product-card.component';
-import { FixedSizeList as List } from 'react-window';
 
-import { CategoryContainer, CategoryContainerTitle } from './category.styles';
+import { CategoryContainer, CategoryContainerTitle, ListContainer } from './category.styles';
 
 const Category = () => {
   const { category } = useParams();
@@ -51,15 +50,14 @@ const Category = () => {
     <CategoryContainer>
       <CategoryContainerTitle>{category.toUpperCase()}</CategoryContainerTitle>
       {odds && (
-
-        <List
+        <ListContainer
           height={600}
           itemCount={itemCount}
           itemSize={itemSize}
           width={'100%'}
         >
           {Row}
-        </List>
+        </ListContainer>
       )}
     </CategoryContainer>
   );

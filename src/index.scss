@@ -21,25 +21,3 @@ body {
     height: fit-content;
   }
 }
-
-*::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(240, 230, 210, 0.1);
-  outline: 1px solid rgba(240, 230, 210, 0.1);
-  border-radius: 0px;
-}
-
-*::-webkit-scrollbar-track {
-  box-shadow: none;
-}
-
-@-moz-document url-prefix() {
-  .scroller {
-    scrollbar-width: thin;
-    scrollbar-color: #f0e6d2;
-  }
-}

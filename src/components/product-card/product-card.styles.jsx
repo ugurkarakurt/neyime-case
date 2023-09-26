@@ -7,6 +7,7 @@ export const ProductCardContainer = styled.div`
   position: relative;
   color: #f0e6d2;
   gap: 5px;
+  padding: 0 10px;
   @media (max-width: 1200px) {
     width: 860px;
     margin: 0 auto;
