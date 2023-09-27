@@ -8,25 +8,18 @@ export const CategoriesContext = createContext({
   setGroupedCategoryMap: () => { },
   categoryNames: [],
   setCategoryNames: () => { },
-  categoryName: '',
-  setCategoryName: () => { },
   categoryOpened: false,
   setCategoryOpened: () => { },
-  odds: [],
-  setOdds: () => { },
-  filteredItems: () => { },
-  filteredOdds: [],
-  setFilteredODds: () => { },
+  searchValue: '',
+  setSearchValue: () => { },
 });
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
   const [groupedCategoryMap, setGroupedCategoryMap] = useState({});
   const [categoryNames, setCategoryNames] = useState([]);
-  const [categoryName, setCategoryName] = useState('');
   const [categoryOpened, setCategoryOpened] = useState(false);
-  const [odds, setOdds] = useState([]);
-  const [filteredOdds, setFilteredODds] = useState(odds);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     const getCategoriesMap = async () => {
@@ -55,23 +48,6 @@ export const CategoriesProvider = ({ children }) => {
     setCategoryNames(Object.keys(groupedCategoryMap));
   }, [groupedCategoryMap]);
 
-  useEffect(() => {
-    if (categoryName && groupedCategoryMap[categoryName]) {
-      setOdds(groupedCategoryMap[categoryName]);
-    }
-  }, [categoryName, groupedCategoryMap]);
-
-  useEffect(() => {
-    if (odds) {
-      setFilteredODds(odds);
-    }
-  }, [odds]);
-
-  const filteredItems = (searchField) => {
-    const newFilteredOdds = odds.filter((odd) => odd.N.replace(/\s/g, '').toLowerCase().includes(searchField.replace(/\s/g, '').toLowerCase())
-    );
-    setFilteredODds(newFilteredOdds);
-  };
 
   const value = {
     categoriesMap,
@@ -80,9 +56,8 @@ export const CategoriesProvider = ({ children }) => {
     categoryNames,
     categoryOpened,
     setCategoryOpened,
-    setCategoryName,
-    filteredItems,
-    filteredOdds,
+    searchValue,
+    setSearchValue
   };
 
   return (

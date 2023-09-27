@@ -11,7 +11,7 @@ const defaultFormFields = {
 
 const Search = () => {
   const location = useLocation();
-  const { filteredItems } = useContext(CategoriesContext);
+  const { setSearchValue } = useContext(CategoriesContext);
 
   const [searchField, setSearchField] = useState(defaultFormFields);
   const { search } = searchField;
@@ -19,12 +19,15 @@ const Search = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSearchField({ ...searchField, [name]: value });
-    filteredItems(value);
   };
 
   const resetFormFields = () => {
     setSearchField(defaultFormFields);
   };
+
+  useEffect(() => {
+    setSearchValue(search);
+  }, [search, setSearchField, setSearchValue])
 
   useEffect(() => {
     resetFormFields()

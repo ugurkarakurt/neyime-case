@@ -58,6 +58,7 @@ const clickEffect = css`
   overflow: hidden;
   opacity: 1;
   transition: transform 0.4s ease-in-out;
+  border-color: transparent;
   animation-name: ${bounceAnimation};
   animation-duration: .4s;
   ${Body}{
