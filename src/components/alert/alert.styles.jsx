@@ -32,9 +32,9 @@ export const Success = styled.div`
 `;
 
 export const Danger = styled(Success)`
-  background-color: #D3393C;
-  border-color: #F0E6D2;
-  color: #F0E6D2;
+  background-color: #010A13;
+  border-color: #D3393C;
+  color: #D3393C;
 `;
 
 export const Warning = styled(Success)`
@@ -43,9 +43,9 @@ export const Warning = styled(Success)`
 `;
 
 export const Info = styled(Success)`
-  border-color: #010A13;
-  background-color: #F0E6D2;
-  color: #010A13;
+  border-color: #0397AB;
+  background-color: #010A13;
+  color: #0397AB;
 `;
 
 export const Odd = styled.div`

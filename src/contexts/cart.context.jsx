@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
+import { AlertContext } from './alert.context';
 
 const addCartItem = (cartItems, productToAdd) => {
 
@@ -28,22 +29,6 @@ const addCartItem = (cartItems, productToAdd) => {
   }
 };
 
-const removeCartItem = (cartItems, cartItemToRemove) => {
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.rowID === cartItemToRemove.rowID
-  );
-
-  if (existingCartItem.quantity === 1) {
-    return cartItems.filter((cartItem) => cartItem.rowID !== cartItemToRemove.rowID);
-  }
-
-  return cartItems.map((cartItem) =>
-    cartItem.rowID === cartItemToRemove.rowID
-      ? { ...cartItem, quantity: cartItem.quantity - 1 }
-      : cartItem
-  );
-};
-
 const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.rowID !== cartItemToClear.rowID);
 
@@ -55,14 +40,17 @@ export const CartContext = createContext({
   removeItemFromCart: () => { },
   clearItemFromCart: () => { },
   cartCount: 0,
-  cartTotal: 0,
+  cartTotal: 1,
 });
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState(1);
+
+  const { setAlert } = useContext(AlertContext)
+
 
   useEffect(() => {
     const newCartCount = cartItems.length;
@@ -79,22 +67,51 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
+    const cartItemLenght = cartItems.length;
+    const newCartItemLenght = addCartItem(cartItems, productToAdd).length
     setCartItems(addCartItem(cartItems, productToAdd));
-  };
 
-  const removeItemToCart = (cartItemToRemove) => {
-    setCartItems(removeCartItem(cartItems, cartItemToRemove));
+    if (cartItemLenght < newCartItemLenght) {
+      setAlert({
+        isShow: true,
+        alertType: 'success',
+        message: 'Odd Added'
+      });
+      return;
+    }
+
+    if (cartItemLenght === newCartItemLenght) {
+      setAlert({
+        isShow: true,
+        alertType: 'info',
+        message: 'Odd Updated'
+      });
+      return;
+    }
+
+    if (cartItemLenght > newCartItemLenght) {
+      setAlert({
+        isShow: true,
+        alertType: 'danger',
+        message: 'Odd Removed'
+      });
+      return;
+    }
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    setCartItems(clearCartItem(cartItems, cartItemToClear, setAlert));
+    setAlert({
+      isShow: true,
+      alertType: 'danger',
+      message: 'Odd Removed'
+    });
   };
 
   const value = {
     isCartOpen,
     setIsCartOpen,
     addItemToCart,
-    removeItemToCart,
     clearItemFromCart,
     cartItems,
     setCartItems,

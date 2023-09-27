@@ -17,7 +17,7 @@ const getAlert = (alertType = ALERT_TYPE_CLASSES.success) =>
 }[alertType]);
 
 const AlertMessage = () => {
-  const { cartTotal } = useContext(CartContext);
+  const { cartTotal, cartItems } = useContext(CartContext);
   const { alert, setAlert } = useContext(AlertContext);
 
   useEffect(() => {
@@ -28,14 +28,14 @@ const AlertMessage = () => {
     return () => {
       clearTimeout(timeoutID);
     };
-  }, [alert, setAlert]);
+  }, []);
 
   const CustomAlert = getAlert(alert.alertType);
 
   return (
     <Fragment>
       {
-        alert.isShow && (<CustomAlert>{alert.message} <Odd>₺ {cartTotal}</Odd></CustomAlert>)
+        alert.isShow && cartItems.length && (<CustomAlert>{alert.message} <Odd>₺ {cartTotal}</Odd></CustomAlert>)
       }
     </Fragment>
   );

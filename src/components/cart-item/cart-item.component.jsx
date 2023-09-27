@@ -7,7 +7,9 @@ const CartItem = ({ cartItem }) => {
   const { betName, odd, league, quantity } = cartItem;
   const { clearItemFromCart } = useContext(CartContext);
 
-  const clearItemHandler = () => clearItemFromCart(cartItem);
+  const clearItemHandler = () => {
+    clearItemFromCart(cartItem)
+  };
 
 
   return (

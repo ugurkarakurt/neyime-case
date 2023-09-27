@@ -3,8 +3,8 @@ import { createContext, useState } from 'react';
 export const AlertContext = createContext({
   alert: {
     isShow: false,
-    alertType: 'success',
-    message: 'Message'
+    alertType: '',
+    message: ''
   },
   setAlert: () => { },
 });

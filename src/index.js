@@ -15,8 +15,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <AlertProvider>
+      <AlertProvider>
+        <UserProvider>
           <CategoriesProvider>
             <CartProvider>
               <Reset />
@@ -24,8 +24,8 @@ root.render(
               <AlertMessage />
             </CartProvider>
           </CategoriesProvider>
-        </AlertProvider>
-      </UserProvider>
+        </UserProvider>
+      </AlertProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

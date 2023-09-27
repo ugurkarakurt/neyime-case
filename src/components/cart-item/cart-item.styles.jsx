@@ -5,11 +5,12 @@ export const CartItemContainer = styled.div`
   display: flex;
   position: relative;
   user-select: none;
+  padding: 0 14px;
 `;
 
 export const RemoveButtonContainer = styled.img`
   position: absolute;
-  right: 5px;
+  right: 13px;
   top: 0;
   width: 12px;
   cursor: pointer;
@@ -21,7 +22,7 @@ export const CartItemWrapper = styled.div`
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  padding: 0 7px 14px;
+  padding-bottom: 14px;
   gap: 7px;
   border-bottom: 1px solid rgba(240, 230, 210, 0.1);
   span {

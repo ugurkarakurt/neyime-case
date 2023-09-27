@@ -58,9 +58,30 @@ export const CartItems = styled.div`
   flex-direction: column;
   overflow-y: auto;
   max-height: 234px;
-  overflow-y: auto;
   margin-bottom: 14px;
   gap: 14px;
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 230, 210, 0.1);
+    outline: 1px solid rgba(240, 230, 210, 0.1);
+    border-radius: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+    margin: 30px;
+  }
+
+  @-moz-document url-prefix() {
+    .scroller {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(240, 230, 210, 0.1);
+    }
+  }
 `;
 
 export const CartTotal = styled.span`
