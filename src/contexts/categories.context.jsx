@@ -23,9 +23,9 @@ export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
   const [groupedCategoryMap, setGroupedCategoryMap] = useState({});
   const [categoryNames, setCategoryNames] = useState([]);
-  const [categoryName, setCategoryName] = useState('All');
+  const [categoryName, setCategoryName] = useState('');
   const [categoryOpened, setCategoryOpened] = useState(false);
-  const [odds, setOdds] = useState(groupedCategoryMap['ALL']);
+  const [odds, setOdds] = useState([]);
   const [filteredOdds, setFilteredODds] = useState(odds);
 
   useEffect(() => {

@@ -18,7 +18,6 @@ const CartDropdown = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
 
-  console.log(cartItems);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {

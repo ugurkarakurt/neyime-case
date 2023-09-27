@@ -7,7 +7,7 @@ import { CategoryContainer, CategoryContainerTitle, ListContainer } from './cate
 
 const Category = () => {
   const { category } = useParams();
-  const { filteredOdds, setCategoryName } = useContext(CategoriesContext);
+  const { odds, filteredOdds, setCategoryName } = useContext(CategoriesContext);
   const [rowHeight, setRowHeight] = useState(77);
 
   useEffect(() => {

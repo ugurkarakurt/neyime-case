@@ -6,7 +6,6 @@ import RemoveButton from '../../assets/images/icons/delete.svg'
 
 const CheckoutItem = ({ cartItem }) => {
   const { betName, league, odd } = cartItem;
-  console.log(cartItem);
 
   const { clearItemFromCart } = useContext(CartContext);
 
