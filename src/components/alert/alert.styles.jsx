@@ -29,6 +29,9 @@ export const Success = styled.div`
   bottom: 77px;
   z-index: 999;
   animation: ${slideAnimation} 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+  @media (max-width: 991px) {
+    bottom: 35px;
+  }
 `;
 
 export const Danger = styled(Success)`

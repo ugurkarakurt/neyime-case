@@ -9,6 +9,7 @@ import { CartProvider } from "./contexts/cart.context";
 import { AlertProvider } from "./contexts/alert.context";
 import AlertMessage from "./components/alert/alert-message.component";
 import { GlobalStyles } from "./index.styles";
+import Footer from "./components/footer/footer.component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
               <Reset />
               <App />
               <AlertMessage />
+              <Footer />
             </CartProvider>
           </CategoriesProvider>
         </UserProvider>
