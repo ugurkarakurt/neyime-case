@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
@@ -25,10 +25,13 @@ const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   const [click] = useSound(buttonClickSound, { volume: 1 });
+  const location = useLocation();
+
+  const path = location.pathname.startsWith('/bulletin/')
 
   return (
     <Fragment>
-      <NavigationContainer>
+      <NavigationContainer path={path}>
         {isCartOpen && <CartDropdown />}
 
         <LogoContainer onClick={click} to='/'>

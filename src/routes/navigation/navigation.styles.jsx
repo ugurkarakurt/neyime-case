@@ -1,5 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from "react-router-dom";
+
+const height = css`
+  height: 140px;
+`;
 
 export const NavigationContainer = styled.div`
   height: 70px;
@@ -15,7 +19,8 @@ export const NavigationContainer = styled.div`
   z-index: 99;
   @media (max-width: 576px) {
     flex-wrap: wrap;
-    height: 140px;
+    ${({ path }) => path && height};
+
   }
 `;
 
@@ -35,6 +40,8 @@ export const NavLinks = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
+  border-left: 1px solid rgba(240, 230, 210, 0.1);
+
   @media (max-width: 991px) {
     width: fit-content;
   }

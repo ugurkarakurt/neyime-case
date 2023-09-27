@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+
 const slideAnimation = keyframes`
   0% {
     transform: translateY(-50px);
@@ -14,7 +15,6 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-right: 1px solid rgba(240, 230, 210, 0.1);
   animation: ${slideAnimation} 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
 
   @media (max-width: 991px) {
