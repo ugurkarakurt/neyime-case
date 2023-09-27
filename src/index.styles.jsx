@@ -1,8 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -13,10 +11,8 @@ export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Bai Jamjuree', sans-serif !important;
-font-family: 'Inconsolata', monospace;
-font-family: 'Saira Condensed', sans-serif;
-  }
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    }
 
   #root {
     height: 100vh;

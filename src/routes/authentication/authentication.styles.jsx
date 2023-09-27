@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export const margin = css`
+  margin-top: 70px;
+`
+
 
 export const AuthenticationContainer = styled.div`
   display: flex;
@@ -22,7 +27,7 @@ export const AuthenticationContainer = styled.div`
     gap: 77px;
   }
   @media (max-width: 576px) {
-    margin: 140px auto 0;
+    margin: 91px auto 0;
     padding: 35px 14px;
   }
 `

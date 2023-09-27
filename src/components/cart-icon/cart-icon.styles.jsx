@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as ShoppingSvg } from "../../assets/images/icons/shopping-bag.svg";
 
 export const position = css`
-  bottom: 29px !important;
+  bottom: 30px ;
 `
 
 export const ShoppingIcon = styled(ShoppingSvg)`
@@ -24,7 +24,7 @@ export const ItemCount = styled.span`
   position: absolute;
   font-size: 8px;
   font-weight: bold;
-  bottom: 29px;
+  bottom: 30px;
   color: #f0e6d2;
   @media (max-width: 576px) {
     bottom: 22px;

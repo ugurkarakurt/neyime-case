@@ -13,11 +13,13 @@ export const BasketContainer = styled.div`
   border-radius: 10px;
   color: #fff;
   @media (max-width: 1200px) {
+    height: fit-content;
     flex-direction: column;
     margin: 70px auto 0;
     width: 100%;
     height: 100%;
     border: none;
+    gap: 21px;
   }
 `;
 
@@ -27,6 +29,9 @@ export const BasketItemContainer = styled.div`
   flex-direction: column;
   border-right: 1px solid rgba(240, 230, 210, 0.1);
   padding: 0 35px;
+  @media (max-width: 1200px) {
+    border: none;
+  }
 `;
 
 export const BasketItemBody = styled.div`
@@ -39,6 +44,7 @@ export const BasketItemBody = styled.div`
   @media (max-width: 576px) {
     gap: 35px;
     padding: 14px 0;
+    overflow: hidden;
   }
 
   &::-webkit-scrollbar {
@@ -80,6 +86,9 @@ flex: 1 1;
   align-items: center;
   flex-direction: column;
   gap: 14px;
+  @media (max-width: 1200px) {
+   border-top: 1px solid rgba(240, 230, 210, 0.1);;
+  }
 `;
 
 export const OddsContainer = styled.div`

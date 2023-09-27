@@ -37,7 +37,8 @@ const SignUpForm = () => {
       showAlert({
         isShow: true,
         alertType: 'danger',
-        message: 'Passwords do not match'
+        message: 'Passwords do not match',
+        odd: false
       });
       return;
     }
@@ -57,7 +58,8 @@ const SignUpForm = () => {
         showAlert({
           isShow: true,
           alertType: 'danger',
-          message: 'Cannot create user, email already in use'
+          message: 'Cannot create user, email already in use',
+          odd: false
         });
       } else {
         console.log('user creation encountered an error', error);

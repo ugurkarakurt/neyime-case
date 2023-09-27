@@ -44,6 +44,7 @@ export const NavLinks = styled.div`
 
   @media (max-width: 991px) {
     width: fit-content;
+    border: none;
   }
 `;
 

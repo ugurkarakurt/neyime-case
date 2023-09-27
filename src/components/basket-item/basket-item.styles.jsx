@@ -67,7 +67,7 @@ export const BasketItemRemoveButton = styled.img`
   width: 50px;
   @media (max-width: 576px) {
    position: absolute;
-   right: 0;
+   right: -10px;
    top: -5px;
   }
 `;

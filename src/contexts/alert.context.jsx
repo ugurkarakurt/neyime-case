@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const AlertContext = createContext({
   alert: {
@@ -16,18 +16,19 @@ export const AlertProvider = ({ children }) => {
   const [alert, setAlert] = useState({});
   const [timeoutID, setTimeoutID] = useState(null);
 
+  useEffect(() => {
+    setAlert(alert);
+  }, [alert])
+
 
   const showAlert = ({ message, alertType, isShow, odd }) => {
     if (timeoutID) {
       clearTimeout(timeoutID);
     }
-
     setAlert({ message, alertType, isShow, odd });
-
     const newTimeoutID = setTimeout(() => {
       hideAlert();
     }, 3000);
-
     setTimeoutID(newTimeoutID);
   };
 

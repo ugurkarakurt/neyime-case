@@ -7,6 +7,7 @@ import Search from '../../components/search/search.component';
 
 import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
+import { AlertContext } from '../../contexts/alert.context';
 
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
@@ -24,10 +25,21 @@ import { NavigationContainer, NavLinks, NavLink, LogoContainer, Logo } from './n
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const { showAlert } = useContext(AlertContext);
   const [click] = useSound(buttonClickSound, { volume: 1 });
   const location = useLocation();
 
-  const path = location.pathname.startsWith('/bulletin/')
+  const path = location.pathname.startsWith('/bulletin/');
+
+  const handleClickSignOut = () => {
+    signOutUser(); click();
+    showAlert({
+      isShow: true,
+      alertType: 'warning',
+      message: 'Successful Exited',
+      odd: false
+    });
+  }
 
   return (
     <Fragment>
@@ -48,7 +60,7 @@ const Navigation = () => {
           </NavLink>
 
           {currentUser ? (
-            <NavLink as='span' onClick={() => { signOutUser(); click(); }}>
+            <NavLink as='span' onClick={handleClickSignOut}>
               <span>
                 Sign Out
               </span>

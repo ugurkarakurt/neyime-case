@@ -19,7 +19,8 @@ export const DirectoryContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 768px) {
-    padding: 175px 35px 35px;
+    padding: 91px 35px 35px;
     grid-template-columns: repeat(1, 1fr);
   }
+  
 `

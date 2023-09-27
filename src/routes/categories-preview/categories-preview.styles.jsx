@@ -16,7 +16,7 @@ export const CategoriesContainer = styled.div`
     border: none;
   }
   @media (max-width: 576px) {
-    margin: 140px auto 0;
+    margin: 91px auto 0;
     padding: 35px 14px;
   }
 `;

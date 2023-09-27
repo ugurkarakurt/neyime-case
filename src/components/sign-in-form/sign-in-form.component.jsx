@@ -45,7 +45,8 @@ const SignInForm = () => {
         showAlert({
           isShow: true,
           alertType: 'danger',
-          message: 'Invalid Login Credentials'
+          message: 'Invalid Login Credentials',
+          odd: false
         });
       }
       console.log('user sign in failed', error);
