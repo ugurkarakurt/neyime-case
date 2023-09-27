@@ -5,6 +5,12 @@ export const CheckoutItemContainer = styled.div`
   display: flex;
   font-size: 20px;
   align-items: center;
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    position: relative;
+  }
 `;
 
 export const CheckoutItemBodyInfo = styled.div`
@@ -24,6 +30,7 @@ export const CheckoutItemLeague = styled.div`
   flex: 1 1;
   font-size: 12px;
   height: 55px;
+  color: rgba(240, 230, 210, 0.5);
 `;
 
 export const CheckoutItemName = styled.div`
@@ -47,6 +54,7 @@ export const CheckoutItemRate = styled.div`
   width: 100px;
   border-radius: 5px;
   border: 1px solid rgba(240, 230, 210, 0.1);
+  color: #c89b3c;
 `;
 
 export const CheckoutItemRemoveButton = styled.img`
@@ -57,4 +65,9 @@ export const CheckoutItemRemoveButton = styled.img`
   cursor: pointer;
   height: 20px;
   width: 50px;
+  @media (max-width: 576px) {
+   position: absolute;
+   right: 0;
+   top: -5px;
+  }
 `;

@@ -1,6 +1,9 @@
-import styled from "styled-components";
-
+import styled, { css } from "styled-components";
 import { ReactComponent as ShoppingSvg } from "../../assets/images/icons/shopping-bag.svg";
+
+export const position = css`
+  bottom: 29px !important;
+`
 
 export const ShoppingIcon = styled(ShoppingSvg)`
   width: 16px;
@@ -25,5 +28,6 @@ export const ItemCount = styled.span`
   color: #f0e6d2;
   @media (max-width: 576px) {
     bottom: 22px;
+    ${({ path }) => !path && position};
   }
 `;
