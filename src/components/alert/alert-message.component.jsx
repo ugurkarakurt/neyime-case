@@ -26,7 +26,7 @@ const AlertMessage = () => {
   return (
     <Fragment>
       {
-        alert.isShow && cartItems.length && (<CustomAlert>{alert.message} <Odd>₺ {cartTotal}</Odd></CustomAlert>)
+        alert.isShow && cartItems.length && (<CustomAlert>{alert.message} <Odd>{alert.odd && (<span>₺ {cartTotal}</span>)}</Odd></CustomAlert>)
       }
     </Fragment>
   );

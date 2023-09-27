@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
@@ -9,6 +9,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 
 import { SignUpContainer, FormContainer, ButtonsContainer } from './sign-up-form.styles';
+import { AlertContext } from '../../contexts/alert.context';
 
 const defaultFormFields = {
   displayName: '',
@@ -20,6 +21,8 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const { showAlert } = useContext(AlertContext);
+
 
   const navigate = useNavigate();
 
@@ -31,7 +34,11 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert('passwords do not match');
+      showAlert({
+        isShow: true,
+        alertType: 'danger',
+        message: 'Passwords do not match'
+      });
       return;
     }
 
@@ -47,7 +54,11 @@ const SignUpForm = () => {
       resetFormFields();
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
-        alert('Cannot create user, email already in use');
+        showAlert({
+          isShow: true,
+          alertType: 'danger',
+          message: 'Cannot create user, email already in use'
+        });
       } else {
         console.log('user creation encountered an error', error);
       }

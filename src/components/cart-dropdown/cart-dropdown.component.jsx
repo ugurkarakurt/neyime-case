@@ -20,8 +20,8 @@ const CartDropdown = () => {
 
   const navigate = useNavigate();
 
-  const goToCheckoutHandler = () => {
-    currentUser ? navigate('/checkout') : navigate('/auth');
+  const goToBasketHandler = () => {
+    currentUser ? navigate('/basket') : navigate('/auth');
   };
 
 
@@ -35,7 +35,7 @@ const CartDropdown = () => {
         )}
       </CartItems>
       {cartItems.length ? (<CartTotal>₺ {cartTotal}</CartTotal>) : null}
-      {cartItems.length ? (<Button children={'Go to Basket'} buttonType={'inverted'} onClick={goToCheckoutHandler} />) : null}
+      {cartItems.length ? (<Button children={'Go to Basket'} buttonType={'inverted'} onClick={goToBasketHandler} />) : null}
     </CartDropdownContainer>
   );
 };

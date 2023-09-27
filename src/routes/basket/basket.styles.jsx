@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CheckoutContainer = styled.div`
+export const BasketContainer = styled.div`
   width: 1200px;
   height: 600px;
   display: flex;
@@ -21,7 +21,7 @@ export const CheckoutContainer = styled.div`
   }
 `;
 
-export const CheckoutItemContainer = styled.div`
+export const BasketItemContainer = styled.div`
   flex: 1 1;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const CheckoutItemContainer = styled.div`
   padding: 0 35px;
 `;
 
-export const CheckoutItemBody = styled.div`
+export const BasketItemBody = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -65,14 +65,14 @@ export const CheckoutItemBody = styled.div`
   }
 `;
 
-export const CheckoutItemHeader = styled.div`
+export const BasketItemHeader = styled.div`
   padding-bottom: 21px;
   margin-bottom: 21px;
   border-bottom: 1px solid rgba(240, 230, 210, 0.1);
   color: #c89b3c;
 `;
 
-export const CheckoutSummaryContainer = styled.div`
+export const BasketSummaryContainer = styled.div`
 flex: 1 1;
   padding: 35px 35px;
   display: flex;
@@ -105,7 +105,7 @@ export const OrderSummary = styled.div`
   color: rgba(240, 230, 210, 1);
 `;
 
-export const CheckoutTotal = styled.div`
+export const BasketTotal = styled.div`
   width: 100%;
   padding: 21px;
   display: flex;

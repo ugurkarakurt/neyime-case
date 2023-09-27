@@ -4,7 +4,8 @@ export const AlertContext = createContext({
   alert: {
     isShow: false,
     alertType: '',
-    message: ''
+    message: '',
+    odd: false,
   },
   setAlert: () => { },
   showAlert: () => { },
@@ -16,12 +17,12 @@ export const AlertProvider = ({ children }) => {
   const [timeoutID, setTimeoutID] = useState(null);
 
 
-  const showAlert = ({ message, alertType, isShow }) => {
+  const showAlert = ({ message, alertType, isShow, odd }) => {
     if (timeoutID) {
       clearTimeout(timeoutID);
     }
 
-    setAlert({ message, alertType, isShow });
+    setAlert({ message, alertType, isShow, odd });
 
     const newTimeoutID = setTimeout(() => {
       hideAlert();
@@ -35,7 +36,7 @@ export const AlertProvider = ({ children }) => {
       clearTimeout(timeoutID);
     }
 
-    setAlert({ ...alert, isShow: false });
+    setAlert({ ...alert, isShow: false, odd: false });
   };
 
   const value = { alert, showAlert, hideAlert };

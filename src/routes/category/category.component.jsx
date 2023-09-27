@@ -40,7 +40,6 @@ const Category = () => {
   }, [category, groupedCategoryMap]);
 
   useEffect(() => {
-    console.log(odds);
     const newFilteredOdds = odds && odds.filter((odd) => odd.N.replace(/\s/g, '').toLowerCase().includes(searchValue.replace(/\s/g, '').toLowerCase())
     );
     setFilteredOdds(newFilteredOdds);

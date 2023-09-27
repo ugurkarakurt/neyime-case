@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CheckoutItemContainer = styled.div`
+export const BasketItemContainer = styled.div`
   width: 100%;
   display: flex;
   font-size: 20px;
@@ -13,7 +13,7 @@ export const CheckoutItemContainer = styled.div`
   }
 `;
 
-export const CheckoutItemBodyInfo = styled.div`
+export const BasketItemBodyInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ export const CheckoutItemBodyInfo = styled.div`
   height: 55px;
 `;
 
-export const CheckoutItemLeague = styled.div`
+export const BasketItemLeague = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -33,7 +33,7 @@ export const CheckoutItemLeague = styled.div`
   color: rgba(240, 230, 210, 0.5);
 `;
 
-export const CheckoutItemName = styled.div`
+export const BasketItemName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ export const CheckoutItemName = styled.div`
   border: 1px solid rgba(240, 230, 210, 0.1);
 `;
 
-export const CheckoutItemRate = styled.div`
+export const BasketItemRate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@ export const CheckoutItemRate = styled.div`
   color: #c89b3c;
 `;
 
-export const CheckoutItemRemoveButton = styled.img`
+export const BasketItemRemoveButton = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;

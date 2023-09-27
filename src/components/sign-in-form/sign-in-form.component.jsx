@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import { AlertContext } from '../../contexts/alert.context';
 
 import {
   signInAuthUserWithEmailAndPassword,
@@ -17,6 +18,7 @@ const defaultFormFields = {
 
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const { showAlert } = useContext(AlertContext);
   const { email, password } = formFields;
 
   const navigate = useNavigate();
@@ -39,6 +41,13 @@ const SignInForm = () => {
       navigate('/');
 
     } catch (error) {
+      if (error.code === 'auth/invalid-login-credentials') {
+        showAlert({
+          isShow: true,
+          alertType: 'danger',
+          message: 'Invalid Login Credentials'
+        });
+      }
       console.log('user sign in failed', error);
     }
   };

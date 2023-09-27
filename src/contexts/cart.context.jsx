@@ -75,7 +75,8 @@ export const CartProvider = ({ children }) => {
       showAlert({
         isShow: true,
         alertType: 'success',
-        message: 'Odd Added'
+        message: 'Odd Added',
+        odd: true
       });
       return;
     }
@@ -84,7 +85,8 @@ export const CartProvider = ({ children }) => {
       showAlert({
         isShow: true,
         alertType: 'info',
-        message: 'Odd Updated'
+        message: 'Odd Updated',
+        odd: true
       });
       return;
     }
@@ -93,7 +95,8 @@ export const CartProvider = ({ children }) => {
       showAlert({
         isShow: true,
         alertType: 'danger',
-        message: 'Odd Removed'
+        message: 'Odd Removed',
+        odd: true
       });
       return;
     }
@@ -104,7 +107,8 @@ export const CartProvider = ({ children }) => {
     showAlert({
       isShow: true,
       alertType: 'danger',
-      message: 'Odd Removed'
+      message: 'Odd Removed',
+      odd: true
     });
   };
 
