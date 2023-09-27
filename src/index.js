@@ -8,8 +8,7 @@ import { CategoriesProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
 import { AlertProvider } from "./contexts/alert.context";
 import AlertMessage from "./components/alert/alert-message.component";
-
-import "./index.scss";
+import { GlobalStyles } from "./index.styles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +18,7 @@ root.render(
         <UserProvider>
           <CategoriesProvider>
             <CartProvider>
+              <GlobalStyles />
               <Reset />
               <App />
               <AlertMessage />
