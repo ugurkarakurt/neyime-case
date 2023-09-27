@@ -7,12 +7,38 @@ export const AlertContext = createContext({
     message: ''
   },
   setAlert: () => { },
+  showAlert: () => { },
+  hideAlert: () => { },
 });
 
 export const AlertProvider = ({ children }) => {
   const [alert, setAlert] = useState({});
+  const [timeoutID, setTimeoutID] = useState(null);
 
-  const value = { alert, setAlert };
+
+  const showAlert = ({ message, alertType, isShow }) => {
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+
+    setAlert({ message, alertType, isShow });
+
+    const newTimeoutID = setTimeout(() => {
+      hideAlert();
+    }, 3000);
+
+    setTimeoutID(newTimeoutID);
+  };
+
+  const hideAlert = () => {
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+
+    setAlert({ ...alert, isShow: false });
+  };
+
+  const value = { alert, showAlert, hideAlert };
 
   return <AlertContext.Provider value={value}>{children}</AlertContext.Provider>;
 };

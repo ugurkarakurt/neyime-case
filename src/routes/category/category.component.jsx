@@ -7,8 +7,7 @@ import { CategoryContainer, CategoryContainerTitle, ListContainer } from './cate
 
 const Category = () => {
   const { category } = useParams();
-  const { groupedCategoryMap } = useContext(CategoriesContext);
-  const [odds, setBets] = useState(groupedCategoryMap[category]);
+  const { filteredOdds, setCategoryName } = useContext(CategoriesContext);
   const [rowHeight, setRowHeight] = useState(77);
 
   useEffect(() => {
@@ -31,25 +30,28 @@ const Category = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+
   }, []);
 
+
   useEffect(() => {
-    setBets(groupedCategoryMap[category]);
-  }, [category, groupedCategoryMap]);
+    setCategoryName(category);
+  }, [category, setCategoryName]);
+
 
   const itemSize = rowHeight;
-  const itemCount = odds ? odds.length : 0;
+  const itemCount = filteredOdds ? filteredOdds.length : 0;
 
   const Row = ({ index, style }) => (
     <div style={style} >
-      {odds && <ProductCard odd={odds[index]} />}
+      {filteredOdds && <ProductCard odd={filteredOdds[index]} />}
     </div>
   );
 
   return (
     <CategoryContainer>
       <CategoryContainerTitle>{category.toUpperCase()}</CategoryContainerTitle>
-      {odds && (
+      {filteredOdds && (
         <ListContainer
           height={600}
           itemCount={itemCount}

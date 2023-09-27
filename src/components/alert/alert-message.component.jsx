@@ -1,5 +1,5 @@
 import { Success, Warning, Danger, Info, Odd } from './alert.styles';
-import { Fragment, useContext, useEffect } from 'react';
+import { Fragment, useContext } from 'react';
 import { AlertContext } from '../../contexts/alert.context';
 import { CartContext } from '../../contexts/cart.context';
 
@@ -18,17 +18,8 @@ const getAlert = (alertType = ALERT_TYPE_CLASSES.success) =>
 
 const AlertMessage = () => {
   const { cartTotal, cartItems } = useContext(CartContext);
-  const { alert, setAlert } = useContext(AlertContext);
+  const { alert } = useContext(AlertContext);
 
-  useEffect(() => {
-    const timeoutID = setTimeout(() => {
-      setAlert({ ...alert, isShow: false });
-    }, 3000);
-
-    return () => {
-      clearTimeout(timeoutID);
-    };
-  }, []);
 
   const CustomAlert = getAlert(alert.alertType);
 

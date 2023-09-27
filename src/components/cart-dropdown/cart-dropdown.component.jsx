@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CartContext } from '../../contexts/cart.context';
+import { UserContext } from '../../contexts/user.context';
 
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
@@ -15,12 +16,13 @@ import {
 
 const CartDropdown = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
+  const { currentUser } = useContext(UserContext);
 
   console.log(cartItems);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
-    navigate('/checkout');
+    currentUser ? navigate('/checkout') : navigate('/auth');
   };
 
 

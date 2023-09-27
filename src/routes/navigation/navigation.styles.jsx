@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
 export const NavigationContainer = styled.div`
@@ -76,26 +76,6 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const SearchContainer = styled.div`
-  padding-right: 28px;
-  flex: 1 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border-right: 1px solid rgba(240, 230, 210, 0.1);
-  @media (max-width: 991px) {
-    padding: 0 28px;
-  }
-
-  @media (max-width: 576px) {
-    flex: none;
-    width: 100%;
-    order: 3;
-    border-right: none;
-    border-top: 1px solid rgba(240, 230, 210, 0.1);
-    padding: 0 16px;
-  }
-`;
 
 export const Logo = styled.div`
   transition: 0.1s ease-in-out;

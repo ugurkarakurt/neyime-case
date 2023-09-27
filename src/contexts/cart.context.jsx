@@ -49,7 +49,7 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(1);
 
-  const { setAlert } = useContext(AlertContext)
+  const { showAlert } = useContext(AlertContext)
 
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const CartProvider = ({ children }) => {
     setCartItems(addCartItem(cartItems, productToAdd));
 
     if (cartItemLenght < newCartItemLenght) {
-      setAlert({
+      showAlert({
         isShow: true,
         alertType: 'success',
         message: 'Odd Added'
@@ -81,7 +81,7 @@ export const CartProvider = ({ children }) => {
     }
 
     if (cartItemLenght === newCartItemLenght) {
-      setAlert({
+      showAlert({
         isShow: true,
         alertType: 'info',
         message: 'Odd Updated'
@@ -90,7 +90,7 @@ export const CartProvider = ({ children }) => {
     }
 
     if (cartItemLenght > newCartItemLenght) {
-      setAlert({
+      showAlert({
         isShow: true,
         alertType: 'danger',
         message: 'Odd Removed'
@@ -100,8 +100,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear, setAlert));
-    setAlert({
+    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    showAlert({
       isShow: true,
       alertType: 'danger',
       message: 'Odd Removed'

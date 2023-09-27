@@ -6,6 +6,7 @@ import { CheckoutContainer, CheckoutItemHeader, CheckoutItemBody, CheckoutTotal,
 
 const Checkout = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
+  console.log(cartItems);
 
   return (
     <CheckoutContainer>
@@ -15,7 +16,7 @@ const Checkout = () => {
         </CheckoutItemHeader>
         <CheckoutItemBody>
           {cartItems.map((cartItem) => (
-            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+            <CheckoutItem key={cartItem.itemID} cartItem={cartItem} />
           ))}
         </CheckoutItemBody>
       </CheckoutItemContainer>
